@@ -1,0 +1,3 @@
+http://localhost:9301/api-order/order/
+zuul整合swagger后访问的地址
+http://localhost:9201/swagger-ui.html

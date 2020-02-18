@@ -1,0 +1,20 @@
+server: 
+  port: 9201
+spring:
+  application:
+    name: zuul-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+zuul:
+  routes:
+    api-member: 
+      path: /api-member/**
+      service-id: member
+    api-order:
+      path: /api-order/**
+      service-id: order 
+    

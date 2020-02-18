@@ -1,0 +1,49 @@
+一、项目使用的端口段
+	eureka: 8761
+	zipkin: 9001
+	gateway: 9101
+	zuul: 9201
+	service: 9301
+二、可以在pom中使用阿里云代替默认maven central
+	<repositories>
+	    <!--阿里云主仓库，代理了maven central和jcenter仓库-->
+	    <repository>
+	        <id>aliyun</id>
+	        <name>aliyun</name>
+	        <url>https://maven.aliyun.com/repository/public</url>
+	        <releases>
+	            <enabled>true</enabled>
+	        </releases>
+	        <snapshots>
+	            <enabled>false</enabled>
+	        </snapshots>
+	    </repository>
+	    <!--阿里云代理Spring 官方仓库-->
+	    <repository>
+	        <id>spring-milestones</id>
+	        <name>Spring Milestones</name>
+	        <url>https://maven.aliyun.com/repository/spring</url>
+	        <releases>
+	            <enabled>true</enabled>
+	        </releases>
+	        <snapshots>
+	            <enabled>false</enabled>
+	        </snapshots>
+	    </repository>
+	</repositories>
+	<pluginRepositories>
+	    <!--阿里云代理Spring 插件仓库-->
+	    <pluginRepository>
+	        <id>spring-plugin</id>
+	        <name>spring-plugin</name>
+	        <url>https://maven.aliyun.com/repository/spring-plugin</url>
+	        <releases>
+	            <enabled>true</enabled>
+	        </releases>
+	        <snapshots>
+	            <enabled>false</enabled>
+	        </snapshots>
+	    </pluginRepository>
+	</pluginRepositories>
+三、Spring Cloud gateway 2.1.8 Greenwich.SR3 与Swagger 2.9.2整合
+	参考资料：https://blog.csdn.net/Amor_Leo/article/details/102853186

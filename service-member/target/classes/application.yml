@@ -1,0 +1,44 @@
+server:
+  port: 9302
+  
+spring:
+  application:
+    name: member
+  zipkin:
+    base-url: http://localhost:9001
+  sleuth:
+    sampler:
+      probability: 1.0
+      
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+
+# 设置服务熔断时限，默认值为1000ms,hytrix的超时时间一定要大于ribbon的超时时间
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 1000
+
+logging:
+  level:
+    org.springframework.boot.autoconfigure: ERROR
+    org.springframework.cloud.openfeign: debug
+    org.springframework.cloud.sleuth: debug
+    
+feign:
+  hystrix:
+    enabled: true # 开启断路器 
+  client:
+    config:
+      default:
+        connectTimeout: 5000  # 指定Feign连接提供者的超时时限
+        readTimeout: 5000    # 指定Feign从请求到获取提供者响应的超时时限
+ 
+swagger:
+  base-package: org.sc
